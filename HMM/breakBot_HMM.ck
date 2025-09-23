@@ -1,12 +1,16 @@
+
+@import "/Users/coltonarnold/Documents/GitHub/machineLabCode/globalOSCSendClass.ck"; //osc send for monitor
+@import "/Users/coltonarnold/Documents/GitHub/machineLabCode/midiInstrumentClass.ck";
+@import "/Users/coltonarnold/Documents/GitHub/machineLabCode/bpmClass.ck";
+
 HMM hmm;
-@import "/Users/mtiid/git/robots/globalOSCSendClass.ck"; //osc send for monitor
 oscSends osc;
+midiInstrumentSends midiSend;
 
-MidiOut mout;
 
-if( !mout.open(1) ) me.exit();
 
-MidiMsg  msg;
+
+
 
 float durArray[0];
 500::ms => dur beat;
@@ -65,31 +69,8 @@ fun void drumbotPlay(int note, int vel, dur long){
 }
 
 fun void drumbotSend(int note, int vel){
- // MIDI note on message
-    // 0x90 + channel (0 in this case)
-    0x90 => msg.data1;
-    // pitch
-    note => msg.data2;
-    // velocity
-    45 => msg.data3;
-    // print
-    <<< "sending NOTE ON message...", "" >>>;
-    // send MIDI message
-    mout.send( msg );
-
-    // let time pass
-    
-    // MIDI note off message
-    // 0x80 + channel (0 in this case)
-    0x80 => msg.data1;
-    // pitch
-    note => msg.data2;
-    // velocity
-    0 => msg.data3;
-    // print
-    <<< "sending NOTE OFF message...", "" >>>;
-    // send MIDI message
-    mout.send( msg );
+    midiSend.init(0);
+    midiSend.messageSend(note,vel, 0);
 }
 
 fun void drumBotOut(){

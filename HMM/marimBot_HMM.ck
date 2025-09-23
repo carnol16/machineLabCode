@@ -1,4 +1,6 @@
-@import "/Users/mtiid/git/robots/globalOSCSendClass.ck";
+@import "/globalOSCSendClass.ck";
+
+
 oscSends osc;
 // Marimba MIDI notes
 [45, 47, 48, 50, 52, 53, 54, 55, 57, 59, 
@@ -57,9 +59,8 @@ fun void noteDur() {
 
 }
 
-fun void marimbotSend(int note, int vel){
+fun void marimbotSend(int note, int vel, 0){
 
-    oscSends osc;
     osc.init("localhost", 50000, 7001);
     osc.send("/marimba", note, vel);
 
