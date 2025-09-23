@@ -1,19 +1,20 @@
 
-@import "/Users/coltonarnold/Documents/GitHub/machineLabCode/globalOSCSendClass.ck"; //osc send for monitor
-@import "/Users/coltonarnold/Documents/GitHub/machineLabCode/midiInstrumentClass.ck";
-@import "/Users/coltonarnold/Documents/GitHub/machineLabCode/bpmClass.ck";
+@import "/Users/mtiid/git/robots/machineLabCode/globalOSCSendClass.ck"; //osc send for monitor
+@import "/Users/mtiid/git/robots/machineLabCode/midiInstrumentClass.ck";
+@import "/Users/mtiid/git/robots/machineLabCode/bpmClass.ck";
 
 HMM hmm;
 oscSends osc;
 midiInstrumentSends midiSend;
+bpmSet bpmTime;
 
 
 
-
+<<<bpmTime.bpm(80)>>>;
 
 
 float durArray[0];
-500::ms => dur beat;
+bpmTime.bpm(80)::ms => dur beat;
 
 fun void noteDur() {
     32 => int length;
@@ -69,7 +70,7 @@ fun void drumbotPlay(int note, int vel, dur long){
 }
 
 fun void drumbotSend(int note, int vel){
-    midiSend.init(0);
+    midiSend.init(1);
     midiSend.messageSend(note,vel, 0);
 }
 

@@ -1,7 +1,7 @@
-@import "/midiInsrumentClass.ck"
+@import "/Users/mtiid/git/robots/machineLabCode/midiInstrumentClass.ck"
 
 midiInstrumentSends midiSend;
 
-midiSend.init(0);
-midiSend.messageSend;
+midiSend.init(1);
+midiSend.messageSend(1, 127, 0);
 
