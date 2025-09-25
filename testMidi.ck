@@ -1,10 +1,3 @@
-//-----------------------------------------------------------------------------
-// name: midiout.ck
-// desc: example of sending MIDI messages
-// note: for a good explanation of how MIDI messages work, see after the code
-//       also see midiout2.ck for sending by common channel voice message
-//-----------------------------------------------------------------------------
-
 // instantiate a MIDI out object
 MidiOut mout;
 // a message to work with
