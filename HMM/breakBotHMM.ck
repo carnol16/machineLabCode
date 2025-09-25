@@ -1,7 +1,6 @@
-
-@import "../machineLabCode/globalOSCSendClass.ck"; //osc send for monitor
 @import "../machineLabCode/midiInstrumentClass.ck";
-@import "../machineLabCode/bpmClass.ck";
+@import "../machineLabCode/bpmSetClass.ck";
+@import "../machineLabCode/globalOSCSendClass.ck";
 
 HMM hmm;
 oscSends osc;
@@ -10,11 +9,11 @@ bpmSet bpmTime;
 
 
 
-<<<bpmTime.bpm(80)>>>;
+<<<bpmTime.bpm(180)>>>;
 
 
 float durArray[0];
-bpmTime.bpm(80)::ms => dur beat;
+bpmTime.bpm(180)::ms => dur beat;
 
 fun void noteDur() {
     32 => int length;

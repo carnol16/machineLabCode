@@ -1,0 +1,18 @@
+#!/bin/bash
+# robots.sh - Script to manage robot servers
+# Kills any running ChucK programs and starts the robot servers
+
+SERVICE='chuck'
+
+# Check if ChucK is already running and kill it if needed
+if ps ax | grep -v grep | grep $SERVICE > /dev/null
+then
+    echo "$SERVICE killing running chuck programs"
+    killall chuck
+fi
+
+# Start the robot servers
+# First server for serial robots on port 8888 (runs in background)
+chuck ~/git/robots/serial-robot-server/master.ck --port:8888 &
+# Second server for hiduino robots on port 8889
+chuck ~/git/robots/hiduino-robot-server/master.ck --port:8889 
