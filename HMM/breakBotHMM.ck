@@ -1,7 +1,7 @@
 
-@import "/Users/mtiid/git/robots/machineLabCode/globalOSCSendClass.ck"; //osc send for monitor
-@import "/Users/mtiid/git/robots/machineLabCode/midiInstrumentClass.ck";
-@import "/Users/mtiid/git/robots/machineLabCode/bpmClass.ck";
+@import "../machineLabCode/globalOSCSendClass.ck"; //osc send for monitor
+@import "../machineLabCode/midiInstrumentClass.ck";
+@import "../machineLabCode/bpmClass.ck";
 
 HMM hmm;
 oscSends osc;

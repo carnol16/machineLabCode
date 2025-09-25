@@ -1,4 +1,4 @@
-@import "/globalOSCSendClass.ck";
+@import "../machineLabCode/globalOSCSendClass.ck";
 
 
 oscSends osc;

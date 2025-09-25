@@ -1,4 +1,4 @@
-@import "/Users/mtiid/git/robots/machineLabCode/midiInstrumentClass.ck"
+@import "../machineLabCode/midiInstrumentClass.ck"
 
 midiInstrumentSends midiSend;
 
