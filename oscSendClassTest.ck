@@ -1,4 +1,4 @@
-@import "../MachineLabCode/globalOSCSendClass.ck";
+@import "../machineLabCode/globalOSCSendClass.ck";
 
 oscSends osc;
 osc.init("localhost", 7000, 7001);
