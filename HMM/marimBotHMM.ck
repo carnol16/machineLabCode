@@ -1,4 +1,4 @@
-@import "../machineLabCode/globalOSCSendClass.ck";
+@import "../globalOSCSendClass.ck";
 
 
 oscSends osc;
@@ -59,7 +59,7 @@ fun void noteDur() {
 
 }
 
-fun void marimbotSend(int note, int vel, 0){
+fun void marimbotSend(int note, int vel){
 
     osc.init("localhost", 50000, 7001);
     osc.send("/marimba", note, vel);

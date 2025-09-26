@@ -1,6 +1,6 @@
-@import "../machineLabCode/midiInstrumentClass.ck";
-@import "../machineLabCode/bpmSetClass.ck";
-@import "../machineLabCode/globalOSCSendClass.ck";
+@import "../midiInstrumentClass.ck";
+@import "../bpmSetClass.ck";
+@import "../globalOSCSendClass.ck";
 
 HMM hmm;
 oscSends osc;
