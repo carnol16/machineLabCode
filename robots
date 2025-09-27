@@ -13,6 +13,6 @@ fi
 
 # Start the robot servers
 # First server for serial robots on port 8888 (runs in background)
-chuck ~../serial-robot-server/master.ck --port:8888 &
+chuck ~/git/machineLabCode/serial-robot-server/master.ck --port:8888 &
 # Second server for hiduino robots on port 8889
-
+chuck ~/git/machineLabCode/hiduino-robot-server/master.ck --port:8889 
