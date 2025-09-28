@@ -18,11 +18,11 @@ talk.talk.init();
 MDarimBot m;
 Trimpbeat b;
 Trimpspin s;
-SnapperBot1 sb1;
+//SnapperBot1 sb1;
 StringThing st;
 // RattleTron r;
 // Tammy t;
-BlowBot bb;
+//BlowBot bb;
 4::second => now;
 <<<"-----------------">>>;
 

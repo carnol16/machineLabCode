@@ -12,10 +12,10 @@ Machine.add(me.dir() + "/Bot.ck");
 Machine.add(me.dir() + "/MDarimBot.ck");
 Machine.add(me.dir() + "/Trimpbeat.ck");
 Machine.add(me.dir() + "/Trimpspin.ck");
-Machine.add(me.dir() + "/SnapperBots.ck");
+//Machine.add(me.dir() + "/SnapperBots.ck");
 Machine.add(me.dir() + "/StringThing.ck");
 // Machine.add(me.dir() + "/RattleTron.ck");
-Machine.add(me.dir() + "/BlowBot.ck");
+//Machine.add(me.dir() + "/BlowBot.ck");
 
 // Machine.add(me.dir() + "/Tammy.ck");
 
