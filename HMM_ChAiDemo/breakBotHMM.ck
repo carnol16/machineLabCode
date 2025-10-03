@@ -9,11 +9,11 @@ bpmSet bpmTime;
 
 
 
-<<<bpmTime.bpm(180)>>>;
+<<<bpmTime.bpm(120)>>>;
 
 
 float durArray[0];
-bpmTime.bpm(180)::ms => dur beat;
+bpmTime.bpm(120)::ms => dur beat;
 
 fun void noteDur() {
     32 => int length;
