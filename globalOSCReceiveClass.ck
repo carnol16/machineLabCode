@@ -3,13 +3,26 @@ public class oscReceive {
     OscOut inMonitor;
     OscMsg msg;
 
-    fun void init(string ipAddress, int inPort, int inMonitorPort) {
+    int data[];
+    
+
+
+    
+    // fun void init(int inPort, int inMonitorPort) {
+    //     in.port(inPort);
+    //     inMonitor.dest("localhost", inMonitorPort);
+    // }
+
+        
+    fun void init(int inPort) {
         in.port(inPort);
-        inMonitor.dest(ipAddress, inMonitorPort);
+        inMonitor.dest("localhost", 7001);
     }
 
-    fun void receive(string instrument) {
-        in.addAddress(instrument);
+
+    fun string int receive() {
+        in.listenAll();
+        //in.addAddress(instrument);
         while( true )
         {
             // wait for event to arrive
@@ -19,6 +32,8 @@ public class oscReceive {
             while( in.recv(msg) )
             { 
                 // expected datatypes
+                //fetch Address
+                msg.address() => string instrument
                 // fetch note
                 msg.getInt(0) => int note;
                 // fetch velocity
@@ -29,7 +44,11 @@ public class oscReceive {
                 inMonitor.start(instrument);
                 inMonitor.add(note);
                 inMonitor.add(vel);
-                inMonitor.send();            
+                inMonitor.send();     
+
+                return instrument;
+                return note;
+                return vel;
             }
         }
     }

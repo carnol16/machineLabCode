@@ -4,7 +4,7 @@ public class oscSends {
 
     "localhost" = > string ipAddress;
     50000 => int outPort;
-    7001 => int outMonitorPort;
+    7000 => int outMonitorPort;
 
 
     out.dest(ipAddress, outPort);

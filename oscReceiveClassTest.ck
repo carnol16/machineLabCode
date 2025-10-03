@@ -4,8 +4,16 @@
 
 oscReceive oscReceive;
 
+//localhost will be transfered to Mr.Roboto IP
+
 oscReceive.init("localhost", 8000, 7001);
+
 while(true){
     oscReceive.receive("/thunderMcQueen");
 }
+
+
+
+
+
 
