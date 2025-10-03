@@ -2,13 +2,14 @@ public class oscSends {
     OscOut out;
     OscOut outMonitor;
 
-    "localhost" = > string ipAddress;
-    50000 => int outPort;
+    "localhost" => string ipAddress;
+    //50000 => int outPort;
     7000 => int outMonitorPort;
 
-
-    out.dest(ipAddress, outPort);
-    outMonitor.dest(ipAddress, outMonitorPort);
+    fun void init(string ipAddress, int outPort){
+        out.dest(ipAddress, outPort);
+        outMonitor.dest(ipAddress, outMonitorPort);
+    }
 
     fun void send(string instrument, int note, int vel) {
         out.start(instrument);
