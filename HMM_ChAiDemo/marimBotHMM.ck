@@ -1,4 +1,4 @@
-@import "../globalOSCSendClass.ck";
+@import "../signalSendClasses/OSC/globalOSCSendClass.ck";
 
 
 oscSends osc;

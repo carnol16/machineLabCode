@@ -1,6 +1,6 @@
-@import "../midiInstrumentClass.ck";
+@import "../signalSendClasses/midi/midiInstrumentClass.ck";
 @import "../bpmSetClass.ck";
-@import "../globalOSCSendClass.ck";
+@import "../signalSendClasses/OSC/globalOSCSendClass.ck";
 
 HMM hmm;
 oscSends osc;

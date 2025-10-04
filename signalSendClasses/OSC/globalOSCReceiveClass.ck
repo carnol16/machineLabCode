@@ -3,7 +3,7 @@ public class oscReceive {
     OscOut inMonitor;
     OscMsg msg;
 
-    int data[];
+    string data[3];
     
 
 
@@ -20,20 +20,25 @@ public class oscReceive {
     }
 
 
-    fun string int receive() {
+    fun string[] receive() {
         in.listenAll();
         //in.addAddress(instrument);
         while( true )
         {
+            for(0 => int i; i < 3; i++){
+                <<<data[i]>>>;
+            }
             // wait for event to arrive
             in => now;
+            data.clear();
+            <<<data, "data cleared">>>;
 
             // grab the next message from the queue. 
             while( in.recv(msg) )
             { 
                 // expected datatypes
                 //fetch Address
-                msg.address() => string instrument
+                msg.address => string instrument;
                 // fetch note
                 msg.getInt(0) => int note;
                 // fetch velocity
@@ -44,12 +49,18 @@ public class oscReceive {
                 inMonitor.start(instrument);
                 inMonitor.add(note);
                 inMonitor.add(vel);
-                inMonitor.send();     
+                inMonitor.send(); 
 
-                return instrument;
-                return note;
-                return vel;
+                Std.itoa(note) => string noteString;
+                Std.itoa(vel) => string velString;
+
+                data << instrument;
+                data << Std.itoa(note);
+                data << Std.itoa(vel);
+                
+                return data;
             }
         }
+        return [""];
     }
 }

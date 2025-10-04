@@ -1,5 +1,5 @@
 HMM hmm;
-@import "../globalOSCSendClass.ck"; //osc send for monitor
+@import "../signalSendClasses/OSC/globalOSCSendClass.ck"; //osc send for monitor
 oscSends osc;
 
 MidiOut mout;

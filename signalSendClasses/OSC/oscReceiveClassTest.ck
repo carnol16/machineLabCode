@@ -1,15 +1,16 @@
 //change file path to local path on Machine Lab device
 //not letting us use the relative path?
-@import "../MachineLabCode/globalOSCReceiveClass.ck";
+//@import "../MachineLabCode/globalOSCReceiveClass.ck";
+@import "../OSC/globalOSCReceiveClass.ck";
 
 oscReceive oscReceive;
 
 //localhost will be transfered to Mr.Roboto IP
 
-oscReceive.init("localhost", 8000, 7001);
+oscReceive.init(8000);
 
 while(true){
-    oscReceive.receive("/thunderMcQueen");
+    oscReceive.receive();
 }
 
 
