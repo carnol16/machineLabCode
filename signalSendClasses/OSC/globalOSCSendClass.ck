@@ -2,7 +2,7 @@ public class oscSends {
     OscOut out;
     OscOut outMonitor;
 
-    "localhost" => string ipAddress;
+    //"localhost" => string ipAddress;
     //50000 => int outPort;
     7000 => int outMonitorPort;
 

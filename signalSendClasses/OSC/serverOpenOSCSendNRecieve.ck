@@ -1,5 +1,5 @@
-@import "../machineLabCode/globalOSCSendClass.ck";
-@import "../machineLabCode/globalOSCReceiveClass.ck";
+@import "../OSC/globalOSCReceiveClass.ck";
+@import "../OSC/globalOSCSendClass.ck";
 
 OscIn in;
 
