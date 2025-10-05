@@ -1,3 +1,5 @@
+//Written by Colton Arnold Fall 2025
+
 public class oscReceive {
     OscIn in;
     OscOut inMonitor;
@@ -29,7 +31,7 @@ public class oscReceive {
                 <<<data[i]>>>;
             }
             // wait for event to arrive
-            in => now;
+            //in => now;
             data.clear();
             <<<data, "data cleared">>>;
 

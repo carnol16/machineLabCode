@@ -1,3 +1,5 @@
+//Written by Colton Arnold Fall 2025
+
 public class midiInstrumentSends{
 
     // instantiate a MIDI out object

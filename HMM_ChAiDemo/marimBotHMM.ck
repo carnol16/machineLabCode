@@ -1,3 +1,5 @@
+//Written by Colton Arnold Fall 2025
+
 @import "../signalSendClasses/OSC/globalOSCSendClass.ck";
 
 
@@ -61,7 +63,7 @@ fun void noteDur() {
 
 fun void marimbotSend(int note, int vel){
 
-    osc.init("192.168.1.145", 8001);
+    osc.init("localhost", 50000);
     osc.send("/marimba", note, vel);
 
 }

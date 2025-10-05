@@ -1,3 +1,5 @@
+//Written by Colton Arnold Fall 2025
+
 public class bpmSet{
 
     fun float bpm(int bpm){

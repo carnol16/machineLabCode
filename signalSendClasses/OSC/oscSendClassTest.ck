@@ -1,3 +1,6 @@
+//Written by Colton Arnold Fall 2025
+
+
 @import "../machineLabCode/globalOSCSendClass.ck";
 
 oscSends osc;

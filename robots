@@ -17,4 +17,4 @@ chuck ~/git/machineLabCode/serial-robot-server/master.ck --port:8888 &
 # Second server for hiduino robots on port 8889
 chuck ~/git/machineLabCode/hiduino-robot-server/master.ck --port:8889 &
 #OSC for Client
-chuck ~ /machineLabCode/signalSendClasses/OSC/serverOpenOSCSendNRecieve.ck
+chuck ~/git/machineLabCode/signalSendClasses/OSC/serverOpenOSCSendNRecieve.ck

@@ -1,3 +1,5 @@
+//Written by Colton Arnold Fall 2025
+
 // instantiate a MIDI out object
 MidiOut mout;
 // a message to work with

@@ -1,3 +1,5 @@
+//Written by Colton Arnold Fall 2025
+
 @import "../machineLabCode/midiInstrumentClass.ck"
 
 midiInstrumentSends midiSend;

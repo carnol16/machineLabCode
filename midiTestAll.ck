@@ -1,3 +1,5 @@
+//Written by Colton Arnold Fall 2025
+
 @import "../machineLabCode/midiInstrumentClass.ck";
 @import "../machineLabCode/bpmSetClass.ck";
 @import "../machineLabCode/globalOSCSendClass.ck";

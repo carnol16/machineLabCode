@@ -1,9 +1,12 @@
+//Written by Colton Arnold Fall 2025
+
+
 public class oscSends {
     OscOut out;
     OscOut outMonitor;
 
-    //"localhost" => string ipAddress;
-    //50000 => int outPort;
+    "localhost" => string ipAddress;
+    50000 => int outPort;
     7000 => int outMonitorPort;
 
     fun void init(string ipAddress, int outPort){

@@ -1,3 +1,6 @@
+//Written by Colton Arnold Fall 2025
+
+
 @import "../OSC/globalOSCReceiveClass.ck";
 @import "../OSC/globalOSCSendClass.ck";
 @import "../midi/midiInstrumentClass.ck"
@@ -5,7 +8,11 @@
 
 oscReceive receive;
 oscSends send;
-midiInstrumentSends midiSend;
+midiInstrumentSends midiSendBreak;
+midiInstrumentSends midiSendRattle;
+midiInstrumentSends midiSendTammy;
+midiInstrumentSends midiSendGala;
+
 
 string instrument;
 int note;
@@ -21,12 +28,13 @@ string values[3];
 //     <<<"port ", clientRecievePorts[i], " open">>>;
 // }
 
-receive.init(8000);
+receive.init(8001);
+send.init("localhost", 50000);
 
-midiSend.init(1); // breakBot
-//midiSend.init(4); // rattleTron
-//midiSend.init(3); // tammy
-midiSend.init(0); // ganaPati
+midiSendBreak.init(1); // breakBot
+midiSendRattle.init(4); // rattleTron
+midiSendTammy.init(3); // tammy
+midiSendGala.init(0); // galaPati
 
 
 while(true){
@@ -34,9 +42,10 @@ while(true){
 
     receive.receive() @=> values;
 
-    for(0 => int i; i < values.size(); i++){
-        <<<values[i]>>>;
-    }
+    // for(0 => int i; i < values.size(); i++){
+    //     chout <= values[i] <= " ";
+    // }
+    //     chout <= IO.newline();
 
     values[0] => instrument;
     values[1] => string noteString;
@@ -52,42 +61,64 @@ while(true){
     <<<("instrument:", instrument, "note: ", note, "vel: ", vel)>>>;
 
     if(instrument == "/breakBot"){
-
-        midiSend.messageSend(note, vel, 0);
+        //midiSend.init(1);
+        midiSendBreak.messageSend(note, vel, 0);
+        
+        values.clear();
 
     }
 
-    if(instrument == "/ganaPati"){
+    else if(instrument == "/galaPati"){
 
-        midiSend.init(0);
-        midiSend.messageSend(note, vel, 0);
+        //midiSend.init(0);
+        midiSendGala.messageSend(note, vel, 0);
+        for(0 => int i; i < values.size(); i++){
+            chout <= values[i] <= " ";
+        }
+        chout <= IO.newline();
+        values.clear();
 
     }
     
-    if(instrument == "/tammy"){
+    else if(instrument == "/tammy"){
 
-        midiSend.init(3);
-        midiSend.messageSend(note, vel, 0);
+        //midiSend.init(3);
+        midiSendTammy.messageSend(note, vel, 0);
+        for(0 => int i; i < values.size(); i++){
+            chout <= values[i] <= " ";
+        }
+        chout <= IO.newline();       
+        values.clear();
 
     }
 
-    if(instrument == "/rattleTron"){
+    else if(instrument == "/rattleTron"){
 
-        midiSend.messageSend(note, vel, 0);
+        midiSendRattle.messageSend(note, vel, 0);
+        for(0 => int i; i < values.size(); i++){
+            chout <= values[i] <= " ";
+        }
+        chout <= IO.newline();
+        values.clear();
 
     }    
 
-    if(instrument == "/marimba"){
+    else if(instrument == "/marimba"){
 
         send.send(instrument, note, vel);
+        for(0 => int i; i < values.size(); i++){
+            chout <= values[i] <= " ";
+        }
+        chout <= IO.newline();
+        values.clear();
 
     }    
 
-    if(instrument == "/trimpbeat"){
 
-        send.send(instrument, note, vel);
 
-    }
+
+
+    //values.clear();
 }
 
 

@@ -1,3 +1,5 @@
+//Written by Colton Arnold Fall 2025
+
 HMM hmm;
 @import "../signalSendClasses/OSC/globalOSCSendClass.ck"; //osc send for monitor
 oscSends osc;

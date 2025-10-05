@@ -1,3 +1,6 @@
+//Written by Colton Arnold Fall 2025
+
+
 @import "/Users/mtiid/git/robots/testOSCReceive.ck";
 
 oscRecieve oscReceive;

@@ -69,8 +69,8 @@ fun void drumbotPlay(int note, int vel, dur long){
 }
 
 fun void drumbotSend(int note, int vel){
-    //midiSend.init(1);
-    //midiSend.messageSend(note,vel, 0);
+    midiSend.init(1);
+    midiSend.messageSend(note,vel, 0);
 
     
 }
