@@ -19,8 +19,6 @@ int note;
 int vel;
 string values[3];
 
-
-
 // [8000, 8001, 8002, 8003, 8004, 8005, 8006, 8007, 8008, 8009] @=> int clientRecievePorts[];
 
 // for(0 => int i; i < clientRecievePorts.size(); i++){
@@ -42,11 +40,6 @@ while(true){
 
     receive.receive() @=> values;
 
-    // for(0 => int i; i < values.size(); i++){
-    //     chout <= values[i] <= " ";
-    // }
-    //     chout <= IO.newline();
-
     values[0] => instrument;
     values[1] => string noteString;
     values[2] => string velString;
@@ -54,14 +47,11 @@ while(true){
     Std.atoi(noteString) => note;
     Std.atoi(velString) => vel;
 
-    // midiSend.init(0);
-    // midiSend.messageSend(note, vel, 100);
-
     
     <<<("instrument:", instrument, "note: ", note, "vel: ", vel)>>>;
 
     if(instrument == "/breakBot"){
-        //midiSend.init(1);
+
         midiSendBreak.messageSend(note, vel, 0);
         
         values.clear();
@@ -70,7 +60,6 @@ while(true){
 
     else if(instrument == "/galaPati"){
 
-        //midiSend.init(0);
         midiSendGala.messageSend(note, vel, 0);
         for(0 => int i; i < values.size(); i++){
             chout <= values[i] <= " ";
@@ -82,7 +71,6 @@ while(true){
     
     else if(instrument == "/tammy"){
 
-        //midiSend.init(3);
         midiSendTammy.messageSend(note, vel, 0);
         for(0 => int i; i < values.size(); i++){
             chout <= values[i] <= " ";
@@ -112,20 +100,17 @@ while(true){
         chout <= IO.newline();
         values.clear();
 
-    }    
+    }
 
 
+    else if(instrument == "/trimspin"){
 
+        send.send(instrument, note, vel);
+        for(0 => int i; i < values.size(); i++){
+            chout <= values[i] <= " ";
+        }
+        chout <= IO.newline();
+        values.clear();
 
-
-    //values.clear();
+    }
 }
-
-
-
-
-
-
-    
-
-
