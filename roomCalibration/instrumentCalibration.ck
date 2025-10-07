@@ -118,8 +118,7 @@ fun void rattleTron(){
         if(testVal == 1){
             //...
         } 
-    2::seconds => now;
-    
+        
     }
 }
 while(true){
@@ -127,7 +126,6 @@ while(true){
     breakBot();
     tammyMyLove();
     rattleTron();
-    
     1::week => now;
 
 }
