@@ -24,5 +24,6 @@ public class oscSends {
         outMonitor.add(note);
         outMonitor.add(vel);
         outMonitor.send();
+        //5::ms => now;
     }
 }

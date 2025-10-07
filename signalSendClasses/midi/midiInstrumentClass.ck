@@ -32,7 +32,7 @@ public class midiInstrumentSends{
 
         //length that note is held down: Think of how long
         //a player holds down a piano note down
-        length::ms => now;
+        0::ms => now;
         
         // MIDI note off message
         // 0x80 + channel (0 in this case)

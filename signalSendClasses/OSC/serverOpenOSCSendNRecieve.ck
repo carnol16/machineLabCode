@@ -5,6 +5,8 @@
 @import "../OSC/globalOSCSendClass.ck";
 @import "../midi/midiInstrumentClass.ck"
 
+OscMsg msg;
+OscIn in;
 
 oscReceive receive;
 oscSends send;
@@ -36,6 +38,8 @@ midiSendGala.init(0); // galaPati
 
 
 while(true){
+
+    //1::ms => now;
     //<<<values, "AHHHHHH">>>;
 
     receive.receive() @=> values;
