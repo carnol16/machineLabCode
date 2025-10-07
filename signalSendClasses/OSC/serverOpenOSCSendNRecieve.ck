@@ -36,7 +36,7 @@ midiSendGala.init(0); // galaPati
 
 
 while(true){
-    <<<values, "AHHHHHH">>>;
+    //<<<values, "AHHHHHH">>>;
 
     receive.receive() @=> values;
 
@@ -48,7 +48,7 @@ while(true){
     Std.atoi(velString) => vel;
 
     
-    <<<("instrument:", instrument, "note: ", note, "vel: ", vel)>>>;
+    //<<<("instrument:", instrument, "note: ", note, "vel: ", vel)>>>;
 
     if(instrument == "/breakBot"){
 
@@ -61,10 +61,10 @@ while(true){
     else if(instrument == "/galaPati"){
 
         midiSendGala.messageSend(note, vel, 0);
-        for(0 => int i; i < values.size(); i++){
-            chout <= values[i] <= " ";
-        }
-        chout <= IO.newline();
+        // for(0 => int i; i < values.size(); i++){
+        //     chout <= values[i] <= " ";
+        // }
+        // chout <= IO.newline();
         values.clear();
 
     }
@@ -72,10 +72,10 @@ while(true){
     else if(instrument == "/tammy"){
 
         midiSendTammy.messageSend(note, vel, 0);
-        for(0 => int i; i < values.size(); i++){
-            chout <= values[i] <= " ";
-        }
-        chout <= IO.newline();       
+        // for(0 => int i; i < values.size(); i++){
+        //     chout <= values[i] <= " ";
+        // }
+        // chout <= IO.newline();       
         values.clear();
 
     }
@@ -83,10 +83,10 @@ while(true){
     else if(instrument == "/rattleTron"){
 
         midiSendRattle.messageSend(note, vel, 0);
-        for(0 => int i; i < values.size(); i++){
-            chout <= values[i] <= " ";
-        }
-        chout <= IO.newline();
+        // for(0 => int i; i < values.size(); i++){
+        //     chout <= values[i] <= " ";
+        // }
+        // chout <= IO.newline();
         values.clear();
 
     }    
@@ -94,10 +94,10 @@ while(true){
     else if(instrument == "/marimba"){
 
         send.send(instrument, note, vel);
-        for(0 => int i; i < values.size(); i++){
-            chout <= values[i] <= " ";
-        }
-        chout <= IO.newline();
+        // for(0 => int i; i < values.size(); i++){
+        //     chout <= values[i] <= " ";
+        // }
+        // chout <= IO.newline();
         values.clear();
 
     }
@@ -106,10 +106,10 @@ while(true){
     else if(instrument == "/trimspin"){
 
         send.send(instrument, note, vel);
-        for(0 => int i; i < values.size(); i++){
-            chout <= values[i] <= " ";
-        }
-        chout <= IO.newline();
+        // for(0 => int i; i < values.size(); i++){
+        //     chout <= values[i] <= " ";
+        // }
+        // chout <= IO.newline();
         values.clear();
 
     }

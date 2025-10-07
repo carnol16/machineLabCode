@@ -27,13 +27,13 @@ public class oscReceive {
         //in.addAddress(instrument);
         while( true )
         {
-            for(0 => int i; i < 3; i++){
-                <<<data[i]>>>;
-            }
+            // for(0 => int i; i < 3; i++){
+            //     <<<data[i]>>>;
+            // }
             // wait for event to arrive
             //in => now;
             data.clear();
-            <<<data, "data cleared">>>;
+            //<<<data, "data cleared">>>;
 
             // grab the next message from the queue. 
             while( in.recv(msg) )
@@ -47,7 +47,7 @@ public class oscReceive {
                 msg.getInt(1) => int vel;
 
                 // print
-                <<< "got (via OSC):", instrument, note, vel >>>;
+                //<<< "got (via OSC):", instrument, note, vel >>>;
                 inMonitor.start(instrument);
                 inMonitor.add(note);
                 inMonitor.add(vel);
