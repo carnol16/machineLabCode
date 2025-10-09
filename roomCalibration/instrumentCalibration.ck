@@ -67,9 +67,17 @@ fun void breakBot() {
                 nonFunctionalBreakBot << breakBotArray[i];
             }
         }
-        
     }
+
+    for ( 0 => int i; i < nonFunctionalBreakBot.size(); i++ ){
+        
+        //chout <= results2[i] <= " ";
+
+        chout <= nonFunctionalBreakBot[i] <= " ";
+    }
+    chout <= IO.newline();
 }
+
 
 fun void galaPati(){
 
