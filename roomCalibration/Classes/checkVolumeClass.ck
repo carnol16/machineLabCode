@@ -6,7 +6,7 @@ public class volumeCheck{
     // set mic gain if needed (default is 1.0)
     1.0 => g.gain;
 
-    // helper: RMS (root-mean-square) level calculation
+    // RMS (root-mean-square) level calculation
     fun float getLevel() {
         // measure across a short window
         512 => int size;
