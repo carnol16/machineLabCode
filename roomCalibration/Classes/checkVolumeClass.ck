@@ -4,7 +4,7 @@ public class volumeCheck{
     adc => Gain g => blackhole;
 
     // set mic gain if needed (default is 1.0)
-    1.0 => g.gain;
+    30.0 => g.gain;
 
     // RMS (root-mean-square) level calculation
     fun float getLevel() {

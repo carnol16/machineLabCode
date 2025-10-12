@@ -59,7 +59,7 @@ fun void saveResultsToJSON(int badPairs[][]) {
 
 // ---------------------- MarimBot ----------------------
 fun void marimBot() {
-    osc.init("127.0.0.1", 8000);
+    osc.init("127.0.0.1", 50000);
     int testVal;
 
     for (0 => int i; i < marimbaNotes.size(); i++) {
@@ -94,7 +94,7 @@ fun void marimBot() {
                     }
                 }
 
-                5::ms => now;
+                500::ms => now;
             }
         }
     }
