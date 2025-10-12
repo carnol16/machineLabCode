@@ -1,70 +1,49 @@
-// volumeAverager.ck
+// averageVolume.ck
 // Created by Colton Arnold 2025
 @import "../roomCalibration/Classes/checkVolumeClass.ck";
-@import "../signalSendClasses/midi/midiInstrumentClass.ck";
-@import "../signalSendClasses/OSC/globalOSCSendClass.ck";
 
 volumeCheck volCheck;
-oscSends osc;
-midiInstrumentSends midiSend;
 
-OscIn in;
-OscOut inMonitor;
-OscMsg msg;
-
-// Notes you want to test
+// notes (or test labels)
 [45, 52, 57, 60, 64, 69, 76, 81, 88, 93, 96] @=> int marimbaNotes[];
 
-// number of repetitions per note
+// number of readings per note
 3 => int repeats;
 
-// time between hits
-500::ms => dur beat;
+// time between readings (adjust to give yourself time to strike each note)
+1::second => dur waitTime;
 
-// array to store average volumes
-float avgVolumes[marimbaNotes.size()];
+// store average levels
+float avgLevels[marimbaNotes.size()];
 
 // ---------------------------------------------------
-// function: measure volume for a given note
+// Function: measure average mic level for given note
 // ---------------------------------------------------
 fun float measureAvgVolume(int note, int repeats) {
-    0.0 => float totalVol;
+    0.0 => float total;
+
+    <<< "----- Measuring note", note, "-----" >>>;
 
     for (0 => int i; i < repeats; i++) {
-        osc.send("/marimba", note, 100); // hit with fixed velocity
-        beat => now;
+        <<< "Play note", note, "hit", i+1, "..." >>>;
+        waitTime => now;
 
-        // measure volume for this note
-        volCheck.getVolume("/marimba", note) => float vol;
+        volCheck.getLevel() => float level;
+        <<< "Measured level:", level >>>;
 
-        <<< "Hit", i+1, "for note", note, "volume:", vol >>>;
-
-        totalVol + vol => totalVol;
-        200::ms => now; // short pause between samples
+        total + level => total;
+        500::ms => now;
     }
 
-    return totalVol / repeats;
+    return total / repeats;
 }
 
 // ---------------------------------------------------
-// main test loop
+// Save averages to JSON
 // ---------------------------------------------------
-fun void runVolumeCheck() {
-    osc.init("127.0.0.1", 8000);
-
-    for (0 => int i; i < marimbaNotes.size(); i++) {
-        measureAvgVolume(marimbaNotes[i], repeats) => avgVolumes[i];
-        <<< "Average volume for note", marimbaNotes[i], ":", avgVolumes[i] >>>;
-    }
-
-    // Optionally write results to JSON
-    saveAveragesToJSON(avgVolumes, marimbaNotes);
-}
-
-//Save to Json
-fun void saveAveragesToJSON(float averages[], int notes[]) {
+fun void saveAveragesToJSON(float levels[], int notes[]) {
     FileIO file;
-    "marimba_volume_averages.json" => string filename;
+    "average_mic_levels.json" => string filename;
 
     file.open(filename, FileIO.WRITE);
     if (!file.good()) {
@@ -75,10 +54,10 @@ fun void saveAveragesToJSON(float averages[], int notes[]) {
     file.write("[\n");
     for (0 => int i; i < notes.size(); i++) {
         Std.itoa(notes[i]) => string noteStr;
-        Std.ftoa(averages[i]) => string avgStr;
+        Std.ftoa(levels[i]) => string avgStr;
 
         "{ \"note\": " + noteStr + ", \"average_volume\": " + avgStr + " }" => string entry;
-        if (i < notes.size() - 1) entry +="," => entry;
+        if (i < notes.size() - 1) entry + "," => entry;
         entry + "\n" => entry;
 
         file.write(entry);
@@ -86,10 +65,21 @@ fun void saveAveragesToJSON(float averages[], int notes[]) {
     file.write("]\n");
     file.close();
 
-    <<< "Saved average volumes to", filename >>>;
+    <<< "Saved average mic levels to", filename >>>;
 }
 
 // ---------------------------------------------------
-// Run
+// Main routine
 // ---------------------------------------------------
-runVolumeCheck();
+fun void test() {
+    for (0 => int i; i < marimbaNotes.size(); i++) {
+        measureAvgVolume(marimbaNotes[i], repeats) => avgLevels[i];
+        <<< "Average mic level for note", marimbaNotes[i], ":", avgLevels[i] >>>;
+    }
+
+    saveAveragesToJSON(avgLevels, marimbaNotes);
+    <<< "All measurements complete." >>>;
+}
+
+test();
+
