@@ -1,3 +1,5 @@
+// Created by Colton Arnold Fall 2025
+
 @import "../signalSendClasses/midi/midiInstrumentClass.ck";
 @import "../bpmSetClass.ck";
 @import "../signalSendClasses/OSC/globalOSCSendClass.ck";
